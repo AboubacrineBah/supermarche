@@ -1,0 +1,111 @@
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+
+$primary: #0D9488;
+$secondary: #0F172A;
+$font-family-sans-serif: "Inter", "Segoe UI", sans-serif;
+
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+    --sp-primary: #0D9488;
+    --sp-primary-dark: #0F766E;
+    --sp-secondary: #0F172A;
+    --sp-accent: #F59E0B;
+    --sp-bg: #F8FAFC;
+    --sp-border: #E2E8F0;
+}
+
+body {
+    background: var(--sp-bg);
+    font-family: "Inter", "Segoe UI", sans-serif;
+    color: var(--sp-secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+.navbar-brand {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.amount {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+}
+
+.text-muted-soft {
+    color: #64748b !important;
+}
+
+.sp-card {
+    background: #fff;
+    border: 1px solid var(--sp-border);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.sp-kpi {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    background: #fff;
+    border: 1px solid var(--sp-border);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.sp-kpi__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.sp-kpi__value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.sp-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2.5rem 1rem;
+    color: #64748b;
+    text-align: center;
+}
+
+.sp-empty i {
+    font-size: 2rem;
+}
+
+.badge-status {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-status--success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-status--danger {
+    background: #fee2e2;
+    color: #991b1b;
+}

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SuguPro — Maquette de présentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body { background: #F1F5F9; font-family: 'Segoe UI', sans-serif; }
+        .mockup-frame { border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .mockup-bar { background: #0F172A; color: #fff; padding: 8px 16px; display: flex; align-items: center; gap: 12px; }
+        .mockup-bar .dots { display: flex; gap: 6px; }
+        .mockup-bar .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .mockup-bar .dot.red { background: #ef4444; }
+        .mockup-bar .dot.yellow { background: #f59e0b; }
+        .mockup-bar .dot.green { background: #22c55e; }
+        .mockup-bar .url { background: #1e293b; border-radius: 4px; padding: 4px 12px; font-size: 12px; color: #94a3b8; flex: 1; }
+        .mockup-content { background: #fff; min-height: 500px; }
+        .navbar-mock { background: #0F172A !important; }
+        .navbar-mock .navbar-brand { color: #fff !important; font-weight: 600; }
+        .navbar-mock .nav-link { color: #cbd5e1 !important; }
+        .navbar-mock .nav-link.active { color: #0D9488 !important; }
+        .kpi-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; background: #fff; }
+        .kpi-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .kpi-value { font-size: 24px; font-weight: 700; color: #0F172A; }
+        .screen-title { font-size: 14px; font-weight: 600; color: #64748b; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .section-title { font-size: 20px; font-weight: 700; color: #0F172A; margin: 2rem 0 1rem; border-bottom: 2px solid #0D9488; padding-bottom: 8px; }
+        .pos-product { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .pos-product:hover { border-color: #0D9488; box-shadow: 0 2px 8px rgba(13,148,136,0.2); }
+        .pos-cart { background: #F8FAFC; border-radius: 8px; padding: 16px; }
+        .receipt { font-family: monospace; font-size: 12px; max-width: 300px; margin: 0 auto; border: 1px dashed #94a3b8; padding: 16px; background: #fff; }
+    </style>
+</head>
+<body>
+<div class="container-fluid py-4">
+
+    <h1 class="text-center mb-4" style="color: #0D9488; font-weight: 700;">SuguPro — Maquette de présentation</h1>
+    <p class="text-center text-muted mb-5">ERP / POS de gestion de supermarché pour l'Afrique de l'Ouest · Franc CFA (XOF)</p>
+
+    <!-- ========== ÉCRAN 1 : TABLEAU DE BORD ========== -->
+    <div class="screen-title">Écran 1 — Tableau de bord</div>
+    <div class="mockup-frame">
+        <div class="mockup-bar">
+            <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="url">http://sugupro.test/home</div>
+        </div>
+        <div class="mockup-content">
+            <nav class="navbar navbar-expand navbar-dark navbar-mock px-3">
+                <a class="navbar-brand" href="#"><i class="bi bi-shop me-1"></i> SuguPro</a>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Tableau de bord</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Caisse</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Catalogue</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Achats</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Ventes & Clients</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-person-circle me-1"></i> Administrateur</a></li>
+                </ul>
+            </nav>
+            <div class="container-fluid py-4">
+                <div class="row g-3 mb-4">
+                    <div class="col-3">
+                        <div class="kpi-card">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="kpi-icon bg-primary-subtle text-primary"><i class="bi bi-box-seam"></i></div>
+                                <div><div class="text-muted small">Produits au catalogue</div><div class="kpi-value">124</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="kpi-card">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="kpi-icon bg-success-subtle text-success"><i class="bi bi-check2-circle"></i></div>
+                                <div><div class="text-muted small">Produits actifs</div><div class="kpi-value">118</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="kpi-card">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="kpi-icon bg-warning-subtle text-warning"><i class="bi bi-tags"></i></div>
+                                <div><div class="text-muted small">Catégories</div><div class="kpi-value">12</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="kpi-card">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="kpi-icon bg-danger-subtle text-danger"><i class="bi bi-exclamation-triangle"></i></div>
+                                <div><div class="text-muted small">Alertes de stock</div><div class="kpi-value">5</div><small class="text-muted">2 en rupture</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="mb-3">Derniers produits ajoutés</h5>
+                                <table class="table table-sm mb-0">
+                                    <thead><tr><th>Produit</th><th>Catégorie</th><th class="text-end">Stock</th><th class="text-end">Prix détail</th></tr></thead>
+                                    <tbody>
+                                        <tr><td><div class="fw-semibold">Riz parfumé 5kg</div><small class="text-muted">RIZ-5KG-001</small></td><td>Épicerie</td><td class="text-end"><span class="badge bg-success">45</span></td><td class="text-end fw-semibold">5 000 FCFA</td></tr>
+                                        <tr><td><div class="fw-semibold">Huile Dinor 5L</div><small class="text-muted">HUI-5L-002</small></td><td>Huiles</td><td class="text-end"><span class="badge bg-warning">8</span></td><td class="text-end fw-semibold">8 500 FCFA</td></tr>
+                                        <tr><td><div class="fw-semibold">Lait Bonnet Rouge</div><small class="text-muted">LAI-001</small></td><td>Laitiers</td><td class="text-end"><span class="badge bg-danger">0</span></td><td class="text-end fw-semibold">1 200 FCFA</td></tr>
+                                        <tr><td><div class="fw-semibold">Sucre en poudre 1kg</div><small class="text-muted">SUC-1KG</small></td><td>Épicerie</td><td class="text-end"><span class="badge bg-success">120</span></td><td class="text-end fw-semibold">800 FCFA</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="mb-3">Actions rapides</h5>
+                                <div class="d-grid gap-2">
+                                    <a href="#" class="btn btn-primary"><i class="bi bi-plus-lg me-2"></i>Nouveau produit</a>
+                                    <a href="#" class="btn btn-outline-primary"><i class="bi bi-search me-2"></i>Consulter le catalogue</a>
+                                    <a href="#" class="btn btn-outline-primary"><i class="bi bi-boxes me-2"></i>Suivre le stock</a>
+                                    <a href="#" class="btn btn-primary"><i class="bi bi-cash-register me-2"></i>Ouvrir la caisse</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ÉCRAN 2 : CAISSE (POS) ========== -->
+    <div class="section-title">Écran 2 — Caisse (POS) tactile</div>
+    <div class="mockup-frame">
+        <div class="mockup-bar">
+            <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="url">http://sugupro.test/pos</div>
+        </div>
+        <div class="mockup-content">
+            <nav class="navbar navbar-expand navbar-dark navbar-mock px-3">
+                <a class="navbar-brand" href="#"><i class="bi bi-shop me-1"></i> SuguPro</a>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Tableau de bord</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Caisse</a></li>
+                </ul>
+                <ul class="navbar-nav"><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"><i class="bi bi-person-circle me-1"></i> Caissier</a></li></ul>
+            </nav>
+            <div class="container-fluid py-3">
+                <div class="row g-3">
+                    <div class="col-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="mb-3"><i class="bi bi-grid me-1"></i> Produits</h5>
+                                <div class="row g-2">
+                                    <div class="col-3"><div class="pos-product"><div class="fw-semibold small">Riz parfumé 5kg</div><small class="text-muted">RIZ-001</small><div class="fw-bold text-primary mt-1">5 000 FCFA</div><span class="badge bg-success" style="font-size:0.7rem;">Stock: 45</span></div></div>
+                                    <div class="col-3"><div class="pos-product"><div class="fw-semibold small">Huile Dinor 5L</div><small class="text-muted">HUI-002</small><div class="fw-bold text-primary mt-1">8 500 FCFA</div><span class="badge bg-warning" style="font-size:0.7rem;">Stock: 8</span></div></div>
+                                    <div class="col-3"><div class="pos-product"><div class="fw-semibold small">Lait Bonnet Rouge</div><small class="text-muted">LAI-001</small><div class="fw-bold text-primary mt-1">1 200 FCFA</div><span class="badge bg-danger" style="font-size:0.7rem;">Stock: 0</span></div></div>
+                                    <div class="col-3"><div class="pos-product"><div class="fw-semibold small">Sucre 1kg</div><small class="text-muted">SUC-001</small><div class="fw-bold text-primary mt-1">800 FCFA</div><span class="badge bg-success" style="font-size:0.7rem;">Stock: 120</span></div></div>
+                                    <div class="col-3"><div class="pos-product"><div class="fw-semibold small">Farine de blé 1kg</div><small class="text-muted">FAR-001</small><div class="fw-bold text-primary mt-1">600 FCFA</div><span class="badge bg-success" style="font-size:0.7rem;">Stock: 80</span></div></div>
+                                    <div class="col-3"><div class="pos-product"><div class="fw-semibold small">Tomate concentrée</div><small class="text-muted">TOM-001</small><div class="fw-bold text-primary mt-1">400 FCFA</div><span class="badge bg-success" style="font-size:0.7rem;">Stock: 55</span></div></div>
+                                    <div class="col-3"><div class="pos-product"><div class="fw-semibold small">Oignon 1kg</div><small class="text-muted">OIG-001</small><div class="fw-bold text-primary mt-1">500 FCFA</div><span class="badge bg-warning" style="font-size:0.7rem;">Stock: 12</span></div></div>
+                                    <div class="col-3"><div class="pos-product"><div class="fw-semibold small">Pâtes alimentaires</div><small class="text-muted">PAT-001</small><div class="fw-bold text-primary mt-1">450 FCFA</div><span class="badge bg-success" style="font-size:0.7rem;">Stock: 200</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="pos-cart">
+                            <h5 class="mb-3"><i class="bi bi-cart3 me-1"></i> Panier</h5>
+                            <div class="list-group list-group-flush mb-3">
+                                <div class="list-group-item d-flex justify-content-between align-items-center py-2">
+                                    <div><div class="fw-semibold small">Riz parfumé 5kg</div><small class="text-muted">5 000 × 2</small></div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <button class="btn btn-sm btn-outline-secondary">−</button>
+                                        <span class="fw-bold">2</span>
+                                        <button class="btn btn-sm btn-outline-secondary">+</button>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center py-2">
+                                    <div><div class="fw-semibold small">Huile Dinor 5L</div><small class="text-muted">8 500 × 1</small></div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <button class="btn btn-sm btn-outline-secondary">−</button>
+                                        <span class="fw-bold">1</span>
+                                        <button class="btn btn-sm btn-outline-secondary">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-sm mb-2">
+                                <tr><td>Sous-total</td><td class="text-end">18 500 FCFA</td></tr>
+                                <tr><td>Remise</td><td class="text-end">0 FCFA</td></tr>
+                                <tr class="table-primary"><td class="fw-bold">TOTAL</td><td class="text-end fw-bold fs-5">18 500 FCFA</td></tr>
+                            </table>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Mode de paiement</label>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <div class="form-check"><input class="form-check-input" type="radio" checked><label class="form-check-label">Espèces</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio"><label class="form-check-label">Orange Money</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio"><label class="form-check-label">Wave</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio"><label class="form-check-label">Crédit</label></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Montant reçu (FCFA)</label>
+                                <input type="number" class="form-control form-control-lg text-end" value="20000">
+                            </div>
+                            <div class="mb-3 text-end">
+                                <span class="text-muted">Monnaie : </span><span class="fw-bold fs-5">1 500 FCFA</span>
+                            </div>
+                            <button class="btn btn-success btn-lg w-100"><i class="bi bi-check2-circle me-1"></i> Valider la vente</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ÉCRAN 3 : TICKET THERMIQUE ========== -->
+    <div class="section-title">Écran 3 — Ticket de caisse thermique (80mm)</div>
+    <div class="mockup-frame" style="max-width: 400px; margin: 0 auto;">
+        <div class="mockup-bar">
+            <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="url">http://sugupro.test/pos/receipt/1</div>
+        </div>
+        <div class="mockup-content p-3">
+            <div class="receipt">
+                <div class="text-center fw-bold" style="font-size: 14px;">SuguPro</div>
+                <div class="text-center" style="font-size: 10px;">Supermarché — Bamako, Mali</div>
+                <div class="text-center" style="font-size: 10px;">Tél: +223 XX XX XX XX</div>
+                <hr style="border-top: 1px dashed #000;">
+                <div style="font-size: 10px;">
+                    <div>Réf: VNT-20261124-001</div>
+                    <div>Date: 24/11/2026 14:32</div>
+                    <div>Caissier: Caissier</div>
+                    <div>Client: Amadou Diallo</div>
+                </div>
+                <hr style="border-top: 1px dashed #000;">
+                <table style="width: 100%; font-size: 10px;">
+                    <tr><td class="fw-bold">Article</td><td class="text-center fw-bold">Qté</td><td class="text-end fw-bold">P.U.</td><td class="text-end fw-bold">Total</td></tr>
+                    <tr><td>Riz parfumé 5kg</td><td class="text-center">2</td><td class="text-end">5 000</td><td class="text-end">10 000</td></tr>
+                    <tr><td>Huile Dinor 5L</td><td class="text-center">1</td><td class="text-end">8 500</td><td class="text-end">8 500</td></tr>
+                </table>
+                <hr style="border-top: 1px dashed #000;">
+                <table style="width: 100%; font-size: 10px;">
+                    <tr><td>Sous-total</td><td class="text-end">18 500</td></tr>
+                    <tr><td>Remise</td><td class="text-end">0</td></tr>
+                    <tr><td class="fw-bold">TOTAL</td><td class="text-end fw-bold">18 500 FCFA</td></tr>
+                    <tr><td>Payé (Espèces)</td><td class="text-end">20 000</td></tr>
+                    <tr><td>Monnaie</td><td class="text-end">1 500</td></tr>
+                </table>
+                <hr style="border-top: 2px solid #000;">
+                <div class="text-center" style="font-size: 10px; margin-top: 8px;">Merci de votre visite !<br>À bientôt chez SuguPro</div>
+                <div class="text-center" style="font-size: 9px; color: #555; margin-top: 4px;">Reçu généré le 24/11/2026 14:32:15</div>
+            </div>
+            <div class="d-flex gap-2 justify-content-center mt-3">
+                <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-arrow-left me-1"></i> Nouvelle vente</a>
+                <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-file-earmark-pdf me-1"></i> Ticket PDF</a>
+                <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-printer me-1"></i> Imprimer</button>
+                <button class="btn btn-outline-success btn-sm"><i class="bi bi-whatsapp me-1"></i> WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ÉCRAN 4 : GESTION DES STOCKS ========== -->
+    <div class="section-title">Écran 4 — Gestion des stocks</div>
+    <div class="mockup-frame">
+        <div class="mockup-bar">
+            <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="url">http://sugupro.test/stocks</div>
+        </div>
+        <div class="mockup-content">
+            <nav class="navbar navbar-expand navbar-dark navbar-mock px-3">
+                <a class="navbar-brand" href="#"><i class="bi bi-shop me-1"></i> SuguPro</a>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Tableau de bord</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Caisse</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Catalogue</a></li>
+                </ul>
+                <ul class="navbar-nav"><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"><i class="bi bi-person-circle me-1"></i> Gérant</a></li></ul>
+            </nav>
+            <div class="container-fluid py-3">
+                <div class="row g-3 mb-3">
+                    <div class="col-4">
+                        <div class="kpi-card text-center">
+                            <div class="text-muted small">Produits</div>
+                            <div class="kpi-value">124</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="kpi-card text-center">
+                            <div class="text-muted small">Stock faible</div>
+                            <div class="kpi-value text-warning">5</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="kpi-card text-center">
+                            <div class="text-muted small">En rupture</div>
+                            <div class="kpi-value text-danger">2</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="mb-0">Stock des produits</h5>
+                            <div class="d-flex gap-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Rechercher..." style="width: 200px;">
+                                <select class="form-select form-select-sm" style="width: 120px;"><option>Tous</option><option>Faible</option><option>Rupture</option></select>
+                            </div>
+                        </div>
+                        <table class="table table-sm align-middle mb-0">
+                            <thead><tr><th>Produit</th><th>Catégorie</th><th class="text-end">Stock</th><th class="text-end">Seuil min</th><th class="text-end">Prix détail</th><th class="text-end">Statut</th></tr></thead>
+                            <tbody>
+                                <tr><td class="fw-semibold">Riz parfumé 5kg</td><td>Épicerie</td><td class="text-end"><span class="badge bg-success">45</span></td><td class="text-end">10</td><td class="text-end">5 000 FCFA</td><td><span class="badge bg-success">OK</span></td></tr>
+                                <tr><td class="fw-semibold">Huile Dinor 5L</td><td>Huiles</td><td class="text-end"><span class="badge bg-warning">8</span></td><td class="text-end">10</td><td class="text-end">8 500 FCFA</td><td><span class="badge bg-warning">Faible</span></td></tr>
+                                <tr><td class="fw-semibold">Lait Bonnet Rouge</td><td>Laitiers</td><td class="text-end"><span class="badge bg-danger">0</span></td><td class="text-end">20</td><td class="text-end">1 200 FCFA</td><td><span class="badge bg-danger">Rupture</span></td></tr>
+                                <tr><td class="fw-semibold">Sucre en poudre 1kg</td><td>Épicerie</td><td class="text-end"><span class="badge bg-success">120</span></td><td class="text-end">15</td><td class="text-end">800 FCFA</td><td><span class="badge bg-success">OK</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ÉCRAN 5 : CRÉDITS CLIENTS ========== -->
+    <div class="section-title">Écran 5 — Crédits clients</div>
+    <div class="mockup-frame">
+        <div class="mockup-bar">
+            <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <div class="url">http://sugupro.test/credit-payments</div>
+        </div>
+        <div class="mockup-content">
+            <nav class="navbar navbar-expand navbar-dark navbar-mock px-3">
+                <a class="navbar-brand" href="#"><i class="bi bi-shop me-1"></i> SuguPro</a>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Tableau de bord</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Caisse</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Ventes & Clients</a></li>
+                </ul>
+                <ul class="navbar-nav"><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"><i class="bi bi-person-circle me-1"></i> Gérant</a></li></ul>
+            </nav>
+            <div class="container-fluid py-3">
+                <h4 class="mb-3">Crédits clients à encaisser</h4>
+                <div class="card">
+                    <div class="card-body p-0">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light"><tr><th>Client</th><th>Téléphone</th><th class="text-end">Solde crédit</th><th class="text-end">Points fidélité</th><th class="text-end">Actions</th></tr></thead>
+                            <tbody>
+                                <tr><td class="fw-semibold">Amadou Diallo</td><td>+223 76 12 34 56</td><td class="text-end text-danger fw-bold">45 000 FCFA</td><td class="text-end">45</td><td class="text-end"><a href="#" class="btn btn-sm btn-outline-success"><i class="bi bi-cash-coin me-1"></i> Encaisser</a> <button class="btn btn-sm btn-outline-warning"><i class="bi bi-whatsapp"></i></button></td></tr>
+                                <tr><td class="fw-semibold">Fatoumata Traoré</td><td>+223 65 98 76 54</td><td class="text-end text-danger fw-bold">12 500 FCFA</td><td class="text-end">12</td><td class="text-end"><a href="#" class="btn btn-sm btn-outline-success"><i class="bi bi-cash-coin me-1"></i> Encaisser</a> <button class="btn btn-sm btn-outline-warning"><i class="bi bi-whatsapp"></i></button></td></tr>
+                                <tr><td class="fw-semibold">Ibrahim Coulibaly</td><td>+223 70 11 22 33</td><td class="text-end text-danger fw-bold">8 000 FCFA</td><td class="text-end">8</td><td class="text-end"><a href="#" class="btn btn-sm btn-outline-success"><i class="bi bi-cash-coin me-1"></i> Encaisser</a> <button class="btn btn-sm btn-outline-warning"><i class="bi bi-whatsapp"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5 mb-3 text-muted small">
+        SuguPro — ERP/POS Afrique de l'Ouest · Franc CFA (XOF) · Laravel 13 · Bootstrap 5
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

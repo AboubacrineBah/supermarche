@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>SuguPro - Présentation</title>
+    <style>
+        body { font-family: DejaVu Sans, sans-serif; font-size: 11pt; line-height: 1.5; color: #1e293b; }
+        h1 { color: #0D9488; font-size: 22pt; margin-top: 20px; border-bottom: 2px solid #0D9488; padding-bottom: 6px; }
+        h2 { color: #0F172A; font-size: 16pt; margin-top: 16px; }
+        h3 { color: #0D9488; font-size: 13pt; margin-top: 12px; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 9pt; color: #fff; background: #0D9488; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { border: 1px solid #cbd5e1; padding: 6px 8px; font-size: 10pt; }
+        th { background: #0D9488; color: #fff; }
+        ul { margin: 6px 0; padding-left: 20px; }
+        .cover { text-align: center; padding: 60px 20px; }
+        .cover h1 { font-size: 32pt; border: none; }
+        .cover p { font-size: 14pt; color: #475569; }
+        .page-break { page-break-after: always; }
+    </style>
+</head>
+<body>
+
+<div class="cover">
+    <h1>SuguPro</h1>
+    <p>ERP / POS de gestion de supermarché pour l'Afrique de l'Ouest</p>
+    <p><strong>Présentation — Brief & Détail</strong></p>
+    <p>Franc CFA (XOF) · Mali · UEMOA</p>
+    <p style="margin-top: 40px; font-size: 10pt; color: #94a3b8;">Version 1.0 — Novembre 2026</p>
+</div>
+<div class="page-break"></div>
+
+<h1>1. Résumé exécutif (Brief)</h1>
+<p><strong>SuguPro</strong> est une application web de gestion complète pour les supermarchés et supérettes de l'Afrique de l'Ouest, conçue pour le Franc CFA (XOF) et le contexte local (Mobile Money, ventes à crédit, gestion multi-caisses, alertes WhatsApp/SMS).</p>
+<ul>
+    <li><strong>Cible :</strong> supérettes et supermarchés (Bamako, Dakar, Abidjan).</li>
+    <li><strong>Problèmes résolus :</strong> démarque inconnue, gestion multi-caisses, ventes à crédit, péremption, rupture de stock.</li>
+    <li><strong>Modèle économique :</strong> SaaS mensuel/annuel en FCFA (Starter 25 000 FCFA/mois, Pro 50 000 FCFA/mois) + installation/matériel.</li>
+    <li><strong>Stack :</strong> Laravel 13, PHP 8.3, MySQL, Bootstrap 5, Vite.</li>
+</ul>
+
+<h1>2. Architecture technique</h1>
+<table>
+    <tr><th>Composant</th><th>Technologie</th></tr>
+    <tr><td>Backend</td><td>Laravel 13 / PHP 8.3</td></tr>
+    <tr><td>Base de données</td><td>MySQL (MariaDB) — montants en BIGINT/DECIMAL(15,0)</td></tr>
+    <tr><td>Frontend</td><td>Bootstrap 5.3, Vite, Sass, Chart.js</td></tr>
+    <tr><td>Authentification</td><td>Laravel Auth + Spatie Permission (rôles)</td></tr>
+    <tr><td>Multi-tenant</td><td>Isolation par magasin (tenant_id) via Global Scope</td></tr>
+    <tr><td>API</td><td>Laravel Sanctum (REST v1)</td></tr>
+    <tr><td>PDF</td><td>barryvdh/laravel-dompdf</td></tr>
+    <tr><td>PWA</td><td>manifest.json + Service Worker</td></tr>
+</table>
+
+<h1>3. Rôles & permissions</h1>
+<table>
+    <tr><th>Rôle</th><th>Permissions clés</th></tr>
+    <tr><td>Super Admin</td><td>Tout (multi-magasins)</td></tr>
+    <tr><td>Gérant</td><td>Produits, stocks, achats, POS, clients, rapports</td></tr>
+    <tr><td>Caissier</td><td>POS, ouverture/fermeture caisse, clients</td></tr>
+    <tr><td>Magasinier</td><td>Produits, stocks, achats</td></tr>
+    <tr><td>Comptable</td><td>Consultation produits, rapports</td></tr>
+</table>
+
+<h1>4. Modules fonctionnels (détail)</h1>
+
+<h2>4.1 POS / Caisse</h2>
+<ul>
+    <li>Interface tactile de vente, scan code-barres, panier.</li>
+    <li>Paiements multi-modes : espèces, Orange Money, Wave, Moov Money, carte, crédit.</li>
+    <li>Calcul automatique de la monnaie, impression ticket thermique.</li>
+    <li>Ouverture/fermeture de caisse (Z de caisse), écart de caisse.</li>
+    <li>Décrémentation automatique du stock à la vente.</li>
+</ul>
+
+<h2>4.2 Gestion des stocks & produits</h2>
+<ul>
+    <li>Catalogue produits (SKU, code-barres EAN-13, catégories, unités).</li>
+    <li>Prix d'achat, détail, gros (avec quantité minimale).</li>
+    <li>Alertes stock minimum, produits en rupture.</li>
+    <li>Mouvements de stock (ouverture, achat, vente, ajustement, perte, retour).</li>
+    <li>Verrouillage pessimiste pour éviter les ventes simultanées.</li>
+</ul>
+
+<h2>4.3 Fournisseurs & achats</h2>
+<ul>
+    <li>Fiches fournisseurs (NIF, conditions de paiement, plafond de dette).</li>
+    <li>Bons de commande (brouillon, envoyé, reçu partiel/total).</li>
+    <li>Réception marchandise avec mise à jour automatique du stock.</li>
+    <li>Historique des réceptions et dettes fournisseurs.</li>
+</ul>
+
+<h2>4.4 Clients & crédit</h2>
+<ul>
+    <li>Fiches clients (téléphone, WhatsApp, email, adresse).</li>
+    <li>Plafond de crédit et solde créditeur.</li>
+    <li>Ventes à crédit (ardoise numérique).</li>
+    <li>Relances automatiques (WhatsApp/SMS).</li>
+</ul>
+
+<h2>4.5 Notifications</h2>
+<ul>
+    <li>WhatsApp Cloud API (Meta) : envoi de reçus numériques, alertes stock.</li>
+    <li>SMS (Orange, AfricasTalking, Twilio) : rappels d'échéance, alertes rupture.</li>
+    <li>Architecture découplée via <code>MessagingChannelInterface</code>.</li>
+</ul>
+
+<h2>4.6 Multi-tenant & sécurité</h2>
+<ul>
+    <li>Isolation stricte par magasin (global scope Eloquent).</li>
+    <li>CSRF, validation via FormRequest, échappement Blade, Eloquent (pas de SQL brut).</li>
+    <li>Rate-limiting sur l'authentification.</li>
+    <li>Audit des dépendances (composer audit, npm audit).</li>
+</ul>
+
+<h1>5. Sécurité & qualité</h1>
+<ul>
+    <li>Laravel Pint (PSR-12), Larastan/PHPStan, PHPUnit.</li>
+    <li>Tests feature : authentification, isolation tenant, CRUD produits, stocks, POS.</li>
+    <li>CI GitHub Actions : pint, phpstan, phpunit, build Vite.</li>
+    <li>PWA : manifest + Service Worker (installable Android/iOS).</li>
+</ul>
+
+<h1>6. Déploiement</h1>
+<ul>
+    <li>XAMPP (Apache/MySQL) pour l'installation locale.</li>
+    <li>Laravel Cloud pour la production.</li>
+    <li>Guide d'installation complet dans <code>docs/04-GUIDE-INSTALLATION.md</code>.</li>
+</ul>
+
+<h1>7. Évolutions prévues</h1>
+<ul>
+    <li>Tests E2E (Dusk/Playwright) desktop + mobile.</li>
+    <li>Tableau de bord des ventes (CA, top produits).</li>
+    <li>Transferts de stock entre magasins.</li>
+    <li>Application mobile native (API Sanctum).</li>
+</ul>
+
+<p style="margin-top: 40px; text-align: center; color: #94a3b8; font-size: 9pt;">
+    SuguPro — ERP/POS Afrique de l'Ouest · Franc CFA (XOF) · Laravel 13
+</p>
+
+</body>
+</html>

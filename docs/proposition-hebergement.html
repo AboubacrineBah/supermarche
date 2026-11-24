@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Proposition d'hébergement — SuguPro</title>
+    <style>
+        body { font-family: DejaVu Sans, sans-serif; font-size: 10.5pt; line-height: 1.6; color: #1e293b; margin: 40px; }
+        h1 { color: #0D9488; font-size: 20pt; margin-top: 24px; border-bottom: 2px solid #0D9488; padding-bottom: 6px; }
+        h2 { color: #0F172A; font-size: 14pt; margin-top: 18px; }
+        h3 { color: #0D9488; font-size: 11.5pt; margin-top: 12px; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+        th, td { border: 1px solid #cbd5e1; padding: 7px 9px; }
+        th { background: #0D9488; color: #fff; font-weight: bold; }
+        tr:nth-child(even) { background: #F8FAFC; }
+        .highlight { background: #ECFDF5; border-left: 4px solid #0D9488; padding: 10px 14px; margin: 10px 0; border-radius: 4px; }
+        .price { font-weight: bold; color: #0D9488; }
+        .cover { text-align: center; padding: 80px 20px; }
+        .cover h1 { font-size: 28pt; border: none; }
+        .cover p { font-size: 13pt; color: #475569; }
+        .page-break { page-break-after: always; }
+        ul { margin: 6px 0; padding-left: 20px; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 9pt; color: #fff; background: #0D9488; }
+        .footer { text-align: center; color: #94a3b8; font-size: 8.5pt; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+<div class="cover">
+    <h1>SuguPro</h1>
+    <p>Proposition d'hébergement — Solution VPS Hetzner</p>
+    <p><strong>Pour :</strong> Supermarché / Supérette — Afrique de l'Ouest (UEMOA)</p>
+    <p style="margin-top: 40px; font-size: 10pt; color: #94a3b8;">Document confidentiel — Novembre 2026</p>
+</div>
+<div class="page-break"></div>
+
+<h1>1. Analyse de l'application</h1>
+<p>L'application <strong>SuguPro</strong> est un ERP/POS web multi-tenant pour la gestion de supermarchés, conçu pour le contexte ouest-africain (Franc CFA, Mobile Money, ventes à crédit).</p>
+
+<h2>1.1 Stack technique</h2>
+<table>
+    <tr><th>Composant</th><th>Technologie</th><th>Usage</th></tr>
+    <tr><td>Backend</td><td>Laravel 13 / PHP 8.3</td><td>Logique métier, API REST</td></tr>
+    <tr><td>Base de données</td><td>MySQL 8 (MariaDB)</td><td>Données transactionnelles</td></tr>
+    <tr><td>Frontend</td><td>Bootstrap 5.3, Vite, Chart.js</td><td>Interface utilisateur</td></tr>
+    <tr><td>Cache / Sessions</td><td>Database (Redis optionnel)</td><td>Cache, sessions, files d'attente</td></tr>
+    <tr><td>Stockage fichiers</td><td>Local / S3 compatible</td><td>Images produits, logos</td></tr>
+    <tr><td>Notifications</td><td>WhatsApp Cloud API, SMS</td><td>Reçus, alertes</td></tr>
+</table>
+
+<h2>1.2 Modules fonctionnels</h2>
+<ul>
+    <li><strong>POS / Caisse</strong> : ventes, paiements multi-modes, tickets thermiques</li>
+    <li><strong>Stocks</strong> : catalogue, mouvements, alertes, lots/DLC</li>
+    <li><strong>Achats</strong> : fournisseurs, bons de commande, réceptions</li>
+    <li><strong>Clients</strong> : comptes, crédit, fidélité, relances</li>
+    <li><strong>Multi-tenant</strong> : isolation par magasin</li>
+    <li><strong>Rapports</strong> : CA, top produits, modes de paiement</li>
+    <li><strong>PWA</strong> : installation mobile, scan caméra</li>
+    <li><strong>API REST</strong> : Sanctum pour application mobile</li>
+</ul>
+
+<h2>1.3 Estimation de charge</h2>
+<table>
+    <tr><th>Métrique</th><th>Valeur estimée</th></tr>
+    <tr><td>Utilisateurs simultanés</td><td>5 à 20 (caissiers + gérant)</td></tr>
+    <tr><td>Ventes par jour</td><td>50 à 300 transactions</td></tr>
+    <tr><td>Produits au catalogue</td><td>500 à 5 000 références</td></tr>
+    <tr><td>Stockage base de données</td><td>1 à 5 Go (croissance ~1 Go/an)</td></tr>
+    <tr><td>Stockage fichiers (images)</td><td>2 à 10 Go</td></tr>
+    <tr><td>Trafic réseau</td><td>Faible à modéré (interface web légère)</td></tr>
+</table>
+
+<h1>2. Solution d'hébergement recommandée</h1>
+<div class="highlight">
+    <strong>Recommandation principale :</strong> VPS Hetzner Cloud (datacenter européen, excellente latence vers l'Afrique de l'Ouest via câbles sous-marins, rapport qualité/prix imbattable).
+</div>
+
+<h2>2.1 Configuration VPS Hetzner — Pack Starter</h2>
+<table>
+    <tr><th>Composant</th><th>Spécification</th><th>Justification</th></tr>
+    <tr><td>CPU</td><td>2 vCPU (AMD EPYC)</td><td>Suffisant pour Laravel + MySQL + Nginx</td></tr>
+    <tr><td>RAM</td><td>4 Go DDR4</td><td>MySQL (1.5 Go) + PHP-FPM (1 Go) + système (1 Go) + marge</td></tr>
+    <tr><td>Stockage</td><td>40 Go NVMe SSD</td><td>OS + application + base de données + images (croissance 5 ans)</td></tr>
+    <tr><td>Bande passante</td><td>20 To/mois</td><td>Largement suffisant pour le trafic web</td></tr>
+    <tr><td>Localisation</td><td>Nuremberg (DE) ou Falkenstein (DE)</td><td>Latence ~80-120ms vers Bamako via câble SAT-3/WASC</td></tr>
+    <tr><td>Prix Hetzner</td><td class="price">~4,50 €/mois (≈ 3 000 FCFA)</td><td>Hetzner Cloud CX22</td></tr>
+</table>
+
+<h2>2.2 Configuration VPS Hetzner — Pack Pro (recommandé pour production)</h2>
+<table>
+    <tr><th>Composant</th><th>Spécification</th><th>Justification</th></tr>
+    <tr><td>CPU</td><td>4 vCPU (AMD EPYC)</td><td>Charge multi-caisses + rapports + tâches de fond</td></tr>
+    <tr><td>RAM</td><td>8 Go DDR4</td><td>MySQL optimisé (3 Go) + PHP-FPM (2 Go) + Redis (1 Go) + marge</td></tr>
+    <tr><td>Stockage</td><td>80 Go NVMe SSD</td><td>OS + application + DB + images + sauvegardes locales</td></tr>
+    <tr><td>Bande passante</td><td>20 To/mois</td><td>Marge confortable</td></tr>
+    <tr><td>Localisation</td><td>Nuremberg (DE) ou Helsinki (FI)</td><td>Meilleure latence vers l'Afrique de l'Ouest</td></tr>
+    <tr><td>Prix Hetzner</td><td class="price">~8,50 €/mois (≈ 5 600 FCFA)</td><td>Hetzner Cloud CX32</td></tr>
+</table>
+
+<h2>2.3 Configuration VPS Hetzner — Pack Entreprise (multi-magasins)</h2>
+<table>
+    <tr><th>Composant</th><th>Spécification</th><th>Justification</th></tr>
+    <tr><td>CPU</td><td>8 vCPU (AMD EPYC)</td><td>Charge élevée, plusieurs magasins simultanés</td></tr>
+    <tr><td>RAM</td><td>16 Go DDR4</td><td>MySQL (6 Go) + PHP-FPM (4 Go) + Redis (2 Go) + marge</td></tr>
+    <tr><td>Stockage</td><td>160 Go NVMe SSD</td><td>Multi-tenant, images, sauvegardes</td></tr>
+    <tr><td>Bande passante</td><td>20 To/mois</td><td>Suffisant</td></tr>
+    <tr><td>Prix Hetzner</td><td class="price">~16,50 €/mois (≈ 10 900 FCFA)</td><td>Hetzner Cloud CX42</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<h1>3. Comparatif des packs</h1>
+<table>
+    <tr><th>Critère</th><th>Starter</th><th>Pro (recommandé)</th><th>Entreprise</th></tr>
+    <tr><td>vCPU</td><td>2</td><td>4</td><td>8</td></tr>
+    <tr><td>RAM</td><td>4 Go</td><td>8 Go</td><td>16 Go</td></tr>
+    <tr><td>Stockage NVMe</td><td>40 Go</td><td>80 Go</td><td>160 Go</td></tr>
+    <tr><td>Bande passante</td><td>20 To</td><td>20 To</td><td>20 To</td></tr>
+    <tr><td>Magasins simultanés</td><td>1-3</td><td>3-10</td><td>10-50</td></tr>
+    <tr><td>Utilisateurs simultanés</td><td>5-10</td><td>10-30</td><td>30-100</td></tr>
+    <tr><td>Prix mensuel (FCFA)</td><td class="price">~3 000</td><td class="price">~5 600</td><td class="price">~10 900</td></tr>
+    <tr><td>Prix annuel (FCFA)</td><td class="price">~36 000</td><td class="price">~67 200</td><td class="price">~130 800</td></tr>
+</table>
+
+<h1>4. Sécurité (priorité haute)</h1>
+
+<h2>4.1 Sécurité réseau</h2>
+<ul>
+    <li><strong>Pare-feu (UFW)</strong> : seul les ports 22 (SSH), 80 (HTTP), 443 (HTTPS) ouverts. MySQL (3306) inaccessible depuis l'extérieur.</li>
+    <li><strong>SSH sécurisé</strong> : authentification par clé uniquement, désactivation de l'authentification par mot de passe, port SSH personnalisé, Fail2Ban pour bloquer les tentatives de brute-force.</li>
+    <li><strong>HTTPS obligatoire</strong> : certificat SSL Let's Encrypt (renouvellement automatique), redirection HTTP → HTTPS.</li>
+    <li><strong>Protection DDoS</strong> : Hetzner inclut une protection DDoS de base. Cloudflare (gratuit) en frontal pour WAF et cache.</li>
+</ul>
+
+<h2>4.2 Sécurité applicative</h2>
+<ul>
+    <li><strong>CSRF</strong> : protection sur tous les formulaires (Laravel).</li>
+    <li><strong>Validation</strong> : FormRequest stricts, échappement Blade (XSS), Eloquent (injection SQL).</li>
+    <li><strong>Authentification</strong> : rate-limiting sur le login (5 tentatives/min), sessions chiffrées.</li>
+    <li><strong>Autorisation</strong> : Spatie Permission (rôles et permissions), Gate::before pour super-admin.</li>
+    <li><strong>Multi-tenant</strong> : isolation stricte par magasin via Global Scope Eloquent.</li>
+    <li><strong>Secrets</strong> : variables d'environnement (.env), jamais commitées dans Git.</li>
+</ul>
+
+<h2>4.3 Sécurité des données</h2>
+<ul>
+    <li><strong>Sauvegardes automatiques</strong> : dump MySQL quotidien (cron) + stockage sur Hetzner Cloud Storage (S3 compatible) ou volume séparé.</li>
+    <li><strong>Rétention</strong> : 30 jours de sauvegardes quotidiennes, 12 mois de sauvegardes mensuelles.</li>
+    <li><strong>Chiffrement</strong> : volumes Hetzner chiffrés au repos (option), TLS en transit.</li>
+    <li><strong>Tests de restauration</strong> : vérification mensuelle de la restauration des sauvegardes.</li>
+</ul>
+
+<h2>4.4 Monitoring & alertes</h2>
+<ul>
+    <li><strong>Uptime monitoring</strong> : Uptime Kuma (self-hosted) ou UptimeRobot (gratuit) — alerte si le site est down.</li>
+    <li><strong>Logs</strong> : Laravel logs + rotation quotidienne, accès via SSH.</li>
+    <li><strong>Mises à jour</strong> : mises à jour de sécurité automatiques (unattended-upgrades) pour le système.</li>
+</ul>
+
+<h1>5. Architecture de déploiement</h1>
+<table>
+    <tr><th>Service</th><th>Technologie</th><th>Port</th></tr>
+    <tr><td>Serveur web</td><td>Nginx (reverse proxy)</td><td>80 / 443</td></tr>
+    <tr><td>PHP</td><td>PHP-FPM 8.3</td><td>socket Unix</td></tr>
+    <tr><td>Base de données</td><td>MySQL 8 (MariaDB)</td><td>3306 (localhost uniquement)</td></tr>
+    <tr><td>Cache / Queue</td><td>Redis (optionnel)</td><td>6379 (localhost uniquement)</td></tr>
+    <tr><td>SSL</td><td>Let's Encrypt (Certbot)</td><td>443</td></tr>
+    <tr><td>Process manager</td><td>Supervisor (queue workers)</td><td>—</td></tr>
+</table>
+
+<h1>6. Coûts mensuels estimés (FCFA)</h1>
+<table>
+    <tr><th>Poste</th><th>Starter</th><th>Pro (recommandé)</th><th>Entreprise</th></tr>
+    <tr><td>VPS Hetzner</td><td>3 000</td><td>5 600</td><td>10 900</td></tr>
+    <tr><td>Cloudflare (gratuit)</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>Nom de domaine (.com/.ml)</td><td>1 000</td><td>1 000</td><td>1 000</td></tr>
+    <tr><td>Sauvegardes Hetzner (option)</td><td>1 000</td><td>2 000</td><td>4 000</td></tr>
+    <tr><td>Monitoring (UptimeRobot gratuit)</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td><strong>Total mensuel</strong></td><td class="price"><strong>4 000</strong></td><td class="price"><strong>6 600</strong></td><td class="price"><strong>11 900</strong></td></tr>
+    <tr><td><strong>Total annuel</strong></td><td class="price"><strong>48 000</strong></td><td class="price"><strong>79 200</strong></td><td class="price"><strong>142 800</strong></td></tr>
+</table>
+
+<div class="highlight">
+    <strong>Recommandation :</strong> Pack Pro (6 600 FCFA/mois) pour un supermarché avec 3-10 caisses, charge modérée, et marge de croissance. Le Pack Starter convient pour une supérette unique avec 1-2 caisses.
+</div>
+
+<h1>7. Plan de mise en production</h1>
+<ol>
+    <li><strong>Semaine 1 :</strong> Provisionner le VPS Hetzner, installer Ubuntu 24.04 LTS, Nginx, PHP 8.3, MySQL 8, Redis.</li>
+    <li><strong>Semaine 1 :</strong> Configurer le pare-feu, SSH par clé, Fail2Ban, SSL Let's Encrypt.</li>
+    <li><strong>Semaine 2 :</strong> Déployer l'application (Git clone, composer install, npm run build, migrations, seeders).</li>
+    <li><strong>Semaine 2 :</strong> Configurer les sauvegardes automatiques et le monitoring.</li>
+    <li><strong>Semaine 3 :</strong> Tests d'acceptation en conditions réelles (POS, stocks, caisse).</li>
+    <li><strong>Semaine 3 :</strong> Formation des utilisateurs (caissiers, gérant, magasinier).</li>
+    <li><strong>Semaine 4 :</strong> Mise en production et bascule.</li>
+</ol>
+
+<h1>8. Conclusion</h1>
+<p>La solution VPS Hetzner offre le meilleur rapport qualité/prix pour héberger SuguPro en Afrique de l'Ouest. Avec le <strong>Pack Pro</strong> (4 vCPU, 8 Go RAM, 80 Go NVMe, ~6 600 FCFA/mois), l'application dispose de ressources confortables pour un supermarché de taille moyenne avec plusieurs caisses, tout en garantissant la sécurité des données et la disponibilité du service.</p>
+<p>L'architecture (Nginx + PHP-FPM + MySQL + Redis) est éprouvée, et les sauvegardes automatiques quotidiennes protègent contre la perte de données. La latence vers l'Afrique de l'Ouest (~80-120ms) est acceptable pour une application web transactionnelle.</p>
+
+<div class="footer">
+    SuguPro — Proposition d'hébergement VPS Hetzner · Novembre 2026 · Confidentiel
+</div>
+
+</body>
+</html>
